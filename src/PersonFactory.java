@@ -14,6 +14,9 @@ public class PersonFactory {
                 allPersons.add(i, person);
             }
         }
+        if (person.getLastName().compareTo(allPersons.get(allPersons.size()-1).getLastName()) > 0){
+            allPersons.add(person);
+        }
     }
 
     public ArrayList<Person> under18() {
@@ -27,12 +30,11 @@ public class PersonFactory {
     }
 
     public boolean checkLastName(String lastName) {
-        boolean check = false;
         for (int i = 0; i < allPersons.size(); i++){
             if (lastName.equals(allPersons.get(i).getLastName())){
-                check = true;
+                return true;
             }
         }
-        return check;
+        return false;
     }
 }
